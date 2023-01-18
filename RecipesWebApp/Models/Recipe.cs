@@ -17,5 +17,10 @@ namespace RecipesWebApp.Models
 
         //Relationships
         public List<Recipe_Ingredient> Recipes_Ingredients { get; set; }
+
+        //Ingredient
+        public int IngredientId { get; set; }
+        [ForeignKey("IngredientId")]
+        public Ingredient Ingredient { get; set; }
     }
 }
