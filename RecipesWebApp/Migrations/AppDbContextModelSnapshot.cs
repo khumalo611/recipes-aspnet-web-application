@@ -50,9 +50,6 @@ namespace RecipesWebApp.Migrations
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Instructions")
                         .HasColumnType("nvarchar(max)");
 
@@ -60,8 +57,6 @@ namespace RecipesWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IngredientId");
 
                     b.ToTable("Recipes");
                 });
@@ -79,17 +74,6 @@ namespace RecipesWebApp.Migrations
                     b.HasIndex("IngredientId");
 
                     b.ToTable("Recipes_Ingredients");
-                });
-
-            modelBuilder.Entity("RecipesWebApp.Models.Recipe", b =>
-                {
-                    b.HasOne("RecipesWebApp.Models.Ingredient", "Ingredient")
-                        .WithMany()
-                        .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ingredient");
                 });
 
             modelBuilder.Entity("RecipesWebApp.Models.Recipe_Ingredient", b =>

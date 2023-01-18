@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RecipesWebApp.Migrations
 {
-    public partial class Initial : Migration
+    public partial class ForeignKeyFix : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,18 +30,11 @@ namespace RecipesWebApp.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Instructions = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IngredientId = table.Column<int>(type: "int", nullable: false)
+                    Instructions = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Recipes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Recipes_Ingredients_IngredientId",
-                        column: x => x.IngredientId,
-                        principalTable: "Ingredients",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -69,11 +62,6 @@ namespace RecipesWebApp.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Recipes_IngredientId",
-                table: "Recipes",
-                column: "IngredientId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Recipes_Ingredients_IngredientId",
                 table: "Recipes_Ingredients",
                 column: "IngredientId");
@@ -85,10 +73,10 @@ namespace RecipesWebApp.Migrations
                 name: "Recipes_Ingredients");
 
             migrationBuilder.DropTable(
-                name: "Recipes");
+                name: "Ingredients");
 
             migrationBuilder.DropTable(
-                name: "Ingredients");
+                name: "Recipes");
         }
     }
 }
