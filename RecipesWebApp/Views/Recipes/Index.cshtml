@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Recipe>
+
+@{
+    ViewData["Title"] = "List of Recipes";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-xs-6 border-0 mb-3">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <div class="card-header text-white bg-info">
+                            <p class="card-text">
+                                <h5 class="card-title">
+                                    @item.Name
+                                    <a class="text-white float-right"><i class="bi bi-pencil-square"></i></a>
+                                </h5>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <img src="@item.ImageURL" style="height: 500px; width: 100%; object-fit: cover; object-position: center;" alt="@item.Name">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-footer ">
+                            <p class="card-text">
+                                <a class="btn btn-outline-primary float-right"><i class="bi bi-eye-fill"></i> Show Details</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-controller="Recipes" asp-action="IndexB" style="border: 2px solid black;
+    font-size:18px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 4px 14px"
+> Show More </a>
