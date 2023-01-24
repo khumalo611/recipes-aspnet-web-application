@@ -10,15 +10,19 @@ namespace RecipesWebApp.Models
         [Key]
         public int Id { get; set; }
         [Display(Name = "Image")]
+        [Required(ErrorMessage = "Image is required")]
         public string ImageURL { get; set; }
         [Display(Name = "Recipe Name")]
-        public string Name { get; set; }
+		[Required(ErrorMessage = "Recipe Name is required")]
+		public string Name { get; set; }
         [Display(Name = "Date Added")]
-        public DateTime DateAdded { get; set; }
+		[Required(ErrorMessage = "Date is required")]
+		public DateTime DateAdded { get; set; }
         [Display(Name = "Author")]
         public string Author { get; set; }
         [Display(Name = "Instructions")]
-        public string Instructions { get; set; }
+		[Required(ErrorMessage = "Instructions are required")]
+		public string Instructions { get; set; }
 
         //Relationships
         public List<Recipe_Ingredient> Recipes_Ingredients { get; set; }

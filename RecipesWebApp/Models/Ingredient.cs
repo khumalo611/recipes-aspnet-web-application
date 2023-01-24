@@ -8,6 +8,7 @@ namespace RecipesWebApp.Models
     {
         public int Id { get; set; }
         [Display(Name = "Ingredient Name")]
+        [Required(ErrorMessage = "Ingredient Name is required")]
         public string Name { get; set; }
 
         //Relationships
