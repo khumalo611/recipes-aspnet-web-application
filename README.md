@@ -8,8 +8,8 @@ An website application that lets you add read recipes in a database and allows m
 * Implemented a database context class, entity classes and services 
 * Learnt how to migrate, seed and connect relational data using a code-first approach in C# and ASP.NET
 
-#How To Open
+# How To Open
 
-*Install Visual Studio
-*Clone the repository using the code link or open the repository with Visual Studio
-*Run the application with in IIS Express version
+* Install Visual Studio
+* Clone the repository using the code link or open the repository with Visual Studio
+* Run the application with in IIS Express version
